@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="./components/rotation.js"></script>
+
+      </head>
+      <body>
+        <a-scene background="color:#009aa4">
+
+            <a-entity id="look" camera position="1 1 3"></a-entity>
+
+            <!-- Asset Management -->
+            <a-assets timeout="1000">
+                <a-asset-item id="sea_bed" src="./assets/underwater/scene.gltf"></a-asset-item>
+                <a-asset-item id="diver" src="./assets/scuba_diver/scene.gltf"></a-asset-item>
+            </a-assets>
+
+            <!-- Underwater -->
+            <a-entity position="0 0 0" id="Sea_bed" rotation="0 -15 0" scale="0.15 0.15 0.15" gltf-model="#sea_bed" terrain-rotation-reader></a-entity>
+
+            <!-- Scuba Diver -->
+            <a-entity position="2 0.4 1.9" id="Scuba_diver" rotation="0 90 90" scale="1.83 1.83 1.83" gltf-model="#diver" diver-reader></a-entity>
+        </a-scene>
+      </body>
+</html>
